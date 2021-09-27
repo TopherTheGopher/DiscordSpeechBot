@@ -227,7 +227,7 @@ discordClient.on('message', async (msg) => {
                 else
                     msg.reply('Already connected')
             }
-        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE || msg.content.trim().toLowerCase() == _CMD_QUIT || msg.content.trim().toLowerCase() == DISCONNECT) {
+        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE || msg.content.trim().toLowerCase() == _CMD_QUIT || msg.content.trim().toLowerCase() == _CMD_DISCONNECT) {
             if (guildMap.has(mapKey)) {
                 let val = guildMap.get(mapKey);
                 if (val.voice_Channel) val.voice_Channel.leave()
