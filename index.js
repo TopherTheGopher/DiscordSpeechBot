@@ -177,6 +177,8 @@ const PREFIX = '!';
 const _CMD_HELP        = PREFIX + 'help';
 const _CMD_JOIN        = PREFIX + 'join';
 const _CMD_LEAVE       = PREFIX + 'leave';
+const _CMD_QUIT        = PREFIX + 'quit';
+const _CMD_DISCONNECT  = PREFIX + 'disconnect';
 const _CMD_PLAY        = PREFIX + 'play';
 const _CMD_PAUSE       = PREFIX + 'pause';
 const _CMD_RESUME      = PREFIX + 'resume';
@@ -225,7 +227,7 @@ discordClient.on('message', async (msg) => {
                 else
                     msg.reply('Already connected')
             }
-        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE) {
+        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE || msg.content.trim().toLowerCase() == _CMD_QUIT || msg.content.trim().toLowerCase() == DISCONNECT) {
             if (guildMap.has(mapKey)) {
                 let val = guildMap.get(mapKey);
                 if (val.voice_Channel) val.voice_Channel.leave()
@@ -298,7 +300,7 @@ function getHelpString() {
         out += '**TEXT COMMANDS:**\n'
         out += '```'
         out += _CMD_HELP + '\n'
-        out += _CMD_JOIN + '/' + _CMD_LEAVE + '\n'
+        out += _CMD_JOIN + '/' + _CMD_LEAVE + '/' + _CMD_QUIT + '/' + _CMD_DISCONNECT + '\n'
         out += _CMD_PLAY + ' [query]\n'
         out += _CMD_GENRE + ' [name]\n'
         out += _CMD_RANDOM + '\n'
