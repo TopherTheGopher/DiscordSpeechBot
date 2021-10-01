@@ -916,9 +916,10 @@ async function transcribe_witai(buffer) {
         console.log(output)
         stream.destroy()
 
-	for (const key in output) {
-		console.log(output[key])
-	}
+	console.log('entities = ' + output.entities)
+	//for (const key in output) {
+	//	console.log(output[key])
+	//}
 	    
         if (output && '_text' in output && output._text.length)
             return output._text
