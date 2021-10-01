@@ -105,7 +105,7 @@ function listWitAIApps(cb) {
       path: '/apps?offset=0&limit=100',
       method: 'GET',
       headers: {
-        'Content-Type': 'utterances',//'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer '+WITAPIKEY,
       },
     }
@@ -134,7 +134,7 @@ function updateWitAIAppLang(appID, lang, cb) {
       path: '/apps/' + appID,
       method: 'PUT',
       headers: {
-        'Content-Type': 'utterances',//'application/json',
+        'Content-Type': 'application/json',
         'Authorization': 'Bearer '+WITAPIKEY,
       },
     }
