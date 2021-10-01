@@ -915,12 +915,11 @@ async function transcribe_witai(buffer) {
         witAI_lastcallTS = Math.floor(new Date());
         console.log(output)
         stream.destroy()
-        /*
+		console.log('What it is reading ' + output)
         if (output && '_text' in output && output._text.length)
             return output._text
         if (output && 'text' in output && output.text.length)
             return output.text
-        */
         return output;
     } catch (e) { console.log('transcribe_witai 851:' + e); console.log(e) }
 }
