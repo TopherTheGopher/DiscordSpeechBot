@@ -105,7 +105,7 @@ function listWitAIApps(cb) {
       path: '/apps?offset=0&limit=100',
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'utterances'//'application/json',
         'Authorization': 'Bearer '+WITAPIKEY,
       },
     }
@@ -134,7 +134,7 @@ function updateWitAIAppLang(appID, lang, cb) {
       path: '/apps/' + appID,
       method: 'PUT',
       headers: {
-        'Content-Type': 'application/json',
+        'Content-Type': 'utterances '//'application/json',
         'Authorization': 'Bearer '+WITAPIKEY,
       },
     }
@@ -913,7 +913,7 @@ async function transcribe_witai(buffer) {
 	const contenttype = "audio/raw;encoding=signed-integer;bits=16;rate=48k;endian=little"
         const output = await extractSpeechIntent(WITAPIKEY, stream, contenttype)
         witAI_lastcallTS = Math.floor(new Date());
-        //console.log(output)
+        console.log(output)
         stream.destroy()
 
         if (output && '_text' in output && output._text.length)
